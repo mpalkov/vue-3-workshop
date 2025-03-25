@@ -9,7 +9,11 @@
   <body>
     <h1>HELLO from HTML!</h1>
     <div id="app">
-      {{ message }}
+      <h2 v-if="message.length % 2 === 0">Even: {{ message }}</h2>
+      <h2 v-else>Odd: {{ message }}</h2>
+      <ul>
+        <li v-for="number in listOfNumbers">{{ number * Math.random() }}</li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -18,7 +22,8 @@
       const app = createApp({
         data() {
           return {
-            message: " Hello from Vue!"
+            message: " Hello from Vue!",
+            listOfNumbers: [1, 2, 3, 4, 5]
           }
         }
       });
